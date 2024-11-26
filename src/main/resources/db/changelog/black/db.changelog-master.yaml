@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/black/structure/
+
+  - includeAll:
+      path: db/changelog/black/data/
