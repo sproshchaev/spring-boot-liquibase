@@ -4,8 +4,9 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-3E6389??style=for-the-badge&logo=PostgreSQL&logoColor=FFFFFF)](https://www.postgresql.org/)
 
 # Пример управления системой миграции в Spring-boot приложении - Настройка Liquibase с профилем test при активации которого liquibase поднимает базу БД 'autoshop-test' на embedded-postgres
+1) Основная база поднимается через docker-compose.yaml, конфигурация в application.properties
 
-Запуск тестирования в профиле "test" и использования набора данных для "test" от liquibase
+2) Запуск тестирования в профиле "test" и использования набора данных для "test" от liquibase, конфигурация в application-test.properties
 
  - Embedded PostgreSQL
 ```txt
