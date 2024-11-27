@@ -5,11 +5,13 @@ import com.prosoft.spring_boot_liquibase.repository.CarRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
+@ActiveProfiles("test")
 @SpringBootTest
 class CarRepositoryTest {
 
@@ -20,7 +22,7 @@ class CarRepositoryTest {
     void testFindAll() {
         Iterable<Car> cars = carRepository.findAll();
         assertThat(cars).isNotEmpty();
-        assertThat(cars).hasSize(2);
+        assertThat(cars).hasSize(4);
     }
 
     @Test
@@ -28,19 +30,19 @@ class CarRepositoryTest {
         Optional<Car> carOptional = carRepository.findById(1L);
         assertThat(carOptional).isPresent();
         Car car = carOptional.get();
-        assertThat(car.getBrand()).isEqualTo("BMW");
-        assertThat(car.getColor()).isEqualTo("black");
+        assertThat(car.getBrand()).isEqualTo("BMW-TEST");
+        assertThat(car.getColor()).isEqualTo("black-test");
     }
 
     @Test
     void testSave() {
-        Car savedCar = carRepository.save(new Car("Audi", "blue"));
+        Car savedCar = carRepository.save(new Car("AUDI-TEST", "blue-test"));
         assertThat(savedCar.getId()).isNotNull();
-        assertThat(savedCar.getBrand()).isEqualTo("Audi");
-        assertThat(savedCar.getColor()).isEqualTo("blue");
+        assertThat(savedCar.getBrand()).isEqualTo("AUDI-TEST");
+        assertThat(savedCar.getColor()).isEqualTo("blue-test");
         Iterable<Car> cars = carRepository.findAll();
         assertThat(cars).isNotEmpty();
-        assertThat(cars).hasSize(3);
+        assertThat(cars).hasSize(5);
     }
 
     @Test
@@ -49,6 +51,6 @@ class CarRepositoryTest {
         Optional<Car> carOptional = carRepository.findById(1L);
         assertThat(carOptional).isNotPresent();
         Iterable<Car> cars = carRepository.findAll();
-        assertThat(cars).hasSize(2);
+        assertThat(cars).hasSize(4);
     }
 }

@@ -1,0 +1,7 @@
+# для профиля 'test'
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/test/structure/
+
+  - includeAll:
+      path: db/changelog/test/data/
