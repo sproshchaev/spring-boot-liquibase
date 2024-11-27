@@ -4,15 +4,30 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("CAR")
+@Table(name = "CAR")
 public class Car {
 
     @Id
+    @Column(value = "ID")
     private Long id;
     @Column("BRAND")
     private String brand;
     @Column("COLOR")
     private String color;
+
+    public Car() {
+    }
+
+    public Car(String brand, String color) {
+        this.brand = brand;
+        this.color = color;
+    }
+
+    public Car(Long id, String brand, String color) {
+        this.id = id;
+        this.brand = brand;
+        this.color = color;
+    }
 
     public Long getId() {
         return id;
