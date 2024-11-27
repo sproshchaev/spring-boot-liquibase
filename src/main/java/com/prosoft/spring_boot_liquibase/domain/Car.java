@@ -4,15 +4,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table(name = "CAR")
+@Table(name = "car")
 public class Car {
 
     @Id
-    @Column(value = "ID")
+    @Column(value = "id")
     private Long id;
-    @Column("BRAND")
+    @Column("brand")
     private String brand;
-    @Column("COLOR")
+    @Column("color")
     private String color;
 
     public Car() {

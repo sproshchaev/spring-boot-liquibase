@@ -1,6 +1,5 @@
 CREATE TABLE car (
-                         id bigint AUTO_INCREMENT NOT NULL,
+                         id BIGSERIAL PRIMARY KEY,
                          brand VARCHAR(255) NOT NULL,
-                         color VARCHAR(255) NOT NULL,
-                         PRIMARY KEY (id)
+                         color VARCHAR(255) NOT NULL
 );
